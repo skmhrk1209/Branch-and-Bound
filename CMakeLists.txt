@@ -12,10 +12,10 @@ find_package(osqp REQUIRED)
 find_package(OsqpEigen REQUIRED)
 find_package(pybind11 REQUIRED)
 
-set(OSQP_INCLUDE_DIR /home/osqp/include)
-set(OSQP_EIGEN_INCLUDE_DIR /home/osqp-eigen/include)
+set(OSQP_INCLUDE_DIR $ENV{HOME}/local/include/osqp)
+set(OSQP_EIGEN_INCLUDE_DIR $ENV{HOME}/local/include/OsqpEigen)
 
-include_directories( 
+include_directories(
     ${Boost_INCLUDE_DIRS} 
     ${EIGEN3_INCLUDE_DIR} 
     ${OSQP_INCLUDE_DIR} 
@@ -28,7 +28,8 @@ add_library(
 )
 target_link_libraries(
     cvxqp INTERFACE 
-    ${Boost_LIBRARIES}
+    Boost::mpi
+    Boost::serialization
     OsqpEigen::OsqpEigen 
     osqp::osqp
 )

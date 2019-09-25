@@ -1,6 +1,8 @@
 #include <boost/serialization/vector.hpp>
 #include <algorithm>
 #include "cvxqp.hpp"
+#include "range.hpp"
+#include "iostream.hpp"
 
 // #define DEBUG
 
@@ -8,10 +10,11 @@ namespace cvxqp
 {
 
 template <typename DataType>
-MixedBooleanQPSolver<DataType>::MixedBooleanQPSolver(const Matrix<DataType> &doublyStochasticMatrix)
-{
-    std::cout << "MPI initialized (Rank:" << mCommunicator.rank() << ", Size:" << mCommunicator.size() << ")" << std::endl;
+MixedBooleanQPSolver<DataType>::MixedBooleanQPSolver(boost::mpi::environment &environment) : mEnvironment(environment) {}
 
+template <typename DataType>
+void MixedBooleanQPSolver<DataType>::initialize(const Matrix<DataType> &doublyStochasticMatrix)
+{
     mRows = doublyStochasticMatrix.rows();
     mCols = doublyStochasticMatrix.cols();
     mSize = doublyStochasticMatrix.size();
@@ -35,33 +38,33 @@ MixedBooleanQPSolver<DataType>::MixedBooleanQPSolver(const Matrix<DataType> &dou
 
     mGradient = -Eigen::Map<const Vector<DataType>>(doublyStochasticMatrix.data(), mSize);
 
-    mSolution = Eigen::Map<const Vector<DataType>>(permutationMatrix.data(), mSize);
-    mValue = objective(mSolution);
-}
-
-template <typename DataType>
-bool MixedBooleanQPSolver<DataType>::synchronize(const Vector<DataType> &solution, const DataType &value, bool endFlag)
-{
-    std::vector<DataType> solutionVector(solution.size());
-    Eigen::Map<Vector<DataType>>(solutionVector.data(), solution.size()) = solution;
-
-    std::vector<std::vector<DataType>> solutionVectors;
-    boost::mpi::all_gather(mCommunicator, solutionVector, solutionVectors);
-
-    std::vector<DataType> values;
-    boost::mpi::all_gather(mCommunicator, value, values);
-
-    std::vector<int> endFlags;
-    boost::mpi::all_gather(mCommunicator, endFlag ? 1 : 0, endFlags);
-
-    auto argmin = std::distance(values.begin(), std::min_element(values.begin(), values.end()));
-    if (values[argmin] < mValue)
+    mLinearConstraintMatrix = SparseMatrix<DataType>(mSize + mRows + mCols, mSize);
     {
-        mSolution = Eigen::Map<const Vector<DataType>>(solutionVectors[argmin].data(), solution.size());
-        mValue = values[argmin];
+        std::vector<Triplet<DataType>> triplets;
+        triplets.reserve(mSize + mRows * mCols + mCols * mRows);
+
+        for (auto i = 0; i < mSize; ++i)
+            triplets.emplace_back(i, i, 1);
+
+        for (auto i = 0; i < mRows; ++i)
+            for (auto j = 0; j < mCols; ++j)
+                triplets.emplace_back(i + mSize, i * mCols + j, 1);
+
+        for (auto i = 0; i < mCols; ++i)
+            for (auto j = 0; j < mRows; ++j)
+                triplets.emplace_back(i + mSize + mRows, j * mCols + i, 1);
+
+        mLinearConstraintMatrix.setFromTriplets(triplets.begin(), triplets.end());
     }
 
-    return std::all_of(endFlags.begin(), endFlags.end(), [](auto x) { return x; });
+    mLowerBound = Vector<DataType>(mSize + mRows + mCols);
+    mLowerBound << Vector<DataType>::Zero(mSize), Vector<DataType>::Ones(mRows), Vector<DataType>::Ones(mCols);
+
+    mUpperBound = Vector<DataType>(mSize + mRows + mCols);
+    mUpperBound << Vector<DataType>::Ones(mSize), Vector<DataType>::Ones(mRows), Vector<DataType>::Ones(mCols);
+
+    mSolution = Eigen::Map<const Vector<DataType>>(permutationMatrix.data(), mSize);
+    mValue = objective(mSolution);
 }
 
 template <typename DataType>
@@ -83,36 +86,16 @@ Matrix<DataType> MixedBooleanQPSolver<DataType>::greedy_search(Matrix<DataType> 
 }
 
 template <typename DataType>
-std::tuple<Matrix<DataType>, Matrix<DataType>> MixedBooleanQPSolver<DataType>::solve()
+std::tuple<Matrix<DataType>, Matrix<DataType>> MixedBooleanQPSolver<DataType>::solve(const Matrix<DataType> &doublyStochasticMatrix)
 {
-    SparseMatrix<DataType> linearConstraintMatrix = SparseMatrix<DataType>(mSize + mRows + mCols, mSize);
-    {
-        std::vector<Triplet<DataType>> triplets;
-        triplets.reserve(mSize + mRows * mCols + mCols * mRows);
-
-        for (auto i = 0; i < mSize; ++i)
-            triplets.emplace_back(i, i, 1);
-
-        for (auto i = 0; i < mRows; ++i)
-            for (auto j = 0; j < mCols; ++j)
-                triplets.emplace_back(i + mSize, i * mCols + j, 1);
-
-        for (auto i = 0; i < mCols; ++i)
-            for (auto j = 0; j < mRows; ++j)
-                triplets.emplace_back(i + mSize + mRows, j * mCols + i, 1);
-
-        linearConstraintMatrix.setFromTriplets(triplets.begin(), triplets.end());
-    }
-
-    Vector<DataType> lowerBound(mSize + mRows + mCols);
-    lowerBound << Vector<DataType>::Zero(mSize), Vector<DataType>::Ones(mRows), Vector<DataType>::Ones(mCols);
-
-    Vector<DataType> upperBound(mSize + mRows + mCols);
-    upperBound << Vector<DataType>::Ones(mSize), Vector<DataType>::Ones(mRows), Vector<DataType>::Ones(mCols);
+    initialize(doublyStochasticMatrix);
 
     Matrix<int> solutionMatrix = Matrix<int>::Constant(mRows, mCols, -1);
 
-    branch(linearConstraintMatrix, lowerBound, upperBound, solutionMatrix);
+    std::vector<int> workers(mCommunicator.size());
+    std::iota(workers.begin(), workers.end(), 0);
+
+    branch(mLinearConstraintMatrix, mLowerBound, mUpperBound, solutionMatrix, 0, workers);
 
     while (!synchronize(mSolution, mValue, true))
     {
@@ -124,10 +107,73 @@ std::tuple<Matrix<DataType>, Matrix<DataType>> MixedBooleanQPSolver<DataType>::s
 }
 
 template <typename DataType>
+void MixedBooleanQPSolver<DataType>::branch(const SparseMatrix<DataType> &linearConstraintMatrix,
+                                            const Vector<DataType> &loweBound,
+                                            const Vector<DataType> &upperBound,
+                                            const Matrix<int> &solutionMatrix,
+                                            Matrix<int>::Index depth,
+                                            std::vector<int> &workers)
+{
+    auto num_branches = (solutionMatrix.row(depth).array() < 0).count();
+    auto num_workers = workers.size();
+
+    for (auto i = 0; i < num_branches - num_workers; ++i)
+        workers.emplace_back(workers[i % num_workers]);
+
+    std::vector<std::vector<int>> workersList(num_branches);
+    for (auto i = 0; i < workers.size(); ++i)
+        workersList[i % num_branches].emplace_back(workers[i]);
+
+    for (auto branch = 0; branch < mCols; ++branch)
+    {
+        if (solutionMatrix(depth, branch) >= 0)
+            continue;
+
+        std::vector<int> workers = std::move(workersList.back());
+        workersList.pop_back();
+
+        if (std::find(workers.begin(), workers.end(), mCommunicator.rank()) == workers.end())
+            continue;
+
+        Matrix<int> newSolutionMatrix(solutionMatrix);
+        newSolutionMatrix.row(depth) = Vector<int>::Zero(mCols);
+        newSolutionMatrix.col(branch) = Vector<int>::Zero(mRows);
+        newSolutionMatrix(depth, branch) = 1;
+
+        SparseMatrix<DataType> newLinearConstraintMatrix(linearConstraintMatrix);
+        newLinearConstraintMatrix.conservativeResize(linearConstraintMatrix.rows() + mRows + mCols - 1, linearConstraintMatrix.cols());
+
+        newLinearConstraintMatrix.reserve(Vector<int>::Constant(newLinearConstraintMatrix.cols(), depth + 4));
+
+        for (auto i = 0; i < mRows; ++i)
+            if (i != depth)
+                newLinearConstraintMatrix.insert(i + linearConstraintMatrix.rows(), i * mCols + branch) = 1;
+
+        for (auto j = 0; j < mCols; ++j)
+            if (j != branch)
+                newLinearConstraintMatrix.insert(j + linearConstraintMatrix.rows() + mRows - 1, depth * mCols + j) = 1;
+
+        newLinearConstraintMatrix.insert(linearConstraintMatrix.rows() + mRows + mCols - 2, depth * mCols + branch) = 1;
+
+        newLinearConstraintMatrix.makeCompressed();
+
+        Vector<DataType> newLowerBound(loweBound.size() + mRows + mCols - 1);
+        newLowerBound << loweBound, Vector<DataType>::Zero(mRows - 1), Vector<DataType>::Zero(mCols - 1), Vector<DataType>::Ones(1);
+
+        Vector<DataType> newUpperBound(upperBound.size() + mRows + mCols - 1);
+        newUpperBound << upperBound, Vector<DataType>::Zero(mRows - 1), Vector<DataType>::Zero(mCols - 1), Vector<DataType>::Ones(1);
+
+        bound(newLinearConstraintMatrix, newLowerBound, newUpperBound, newSolutionMatrix, depth, workers);
+    }
+}
+
+template <typename DataType>
 void MixedBooleanQPSolver<DataType>::bound(const SparseMatrix<DataType> &linearConstraintMatrix,
                                            const Vector<DataType> &lowerBound,
                                            const Vector<DataType> &upperBound,
-                                           const Matrix<int> &solutionMatrix)
+                                           const Matrix<int> &solutionMatrix,
+                                           Matrix<int>::Index depth,
+                                           std::vector<int> &workers)
 {
     if ((solutionMatrix.array() < 0).count() == 1)
     {
@@ -153,58 +199,8 @@ void MixedBooleanQPSolver<DataType>::bound(const SparseMatrix<DataType> &linearC
             synchronize(mSolution, mValue, false);
             if (value < mValue)
             {
-                branch(linearConstraintMatrix, lowerBound, upperBound, solutionMatrix);
+                branch(linearConstraintMatrix, lowerBound, upperBound, solutionMatrix, depth + 1, workers);
             }
-        }
-    }
-}
-
-template <typename DataType>
-void MixedBooleanQPSolver<DataType>::branch(const SparseMatrix<DataType> &linearConstraintMatrix,
-                                            const Vector<DataType> &loweBound,
-                                            const Vector<DataType> &upperBound,
-                                            const Matrix<int> &solutionMatrix)
-{
-    for (auto i = 0; i < mRows; ++i)
-    {
-        if ((solutionMatrix.row(i).array() < 0).any())
-        {
-            auto blockSize = mCols / mCommunicator.size();
-            auto blockBegin = blockSize * mCommunicator.rank();
-            auto blockEnd = mCommunicator.rank() == mCommunicator.size() - 1 ? mCols : blockBegin + blockSize;
-
-            for (auto j = 0; (i == 0 && j >= blockBegin && j < blockEnd) || (i > 0 && j < mCols); ++j)
-            {
-                if (solutionMatrix(i, j) < 0)
-                {
-                    Matrix<int> newSolutionMatrix(solutionMatrix);
-                    newSolutionMatrix.row(i) = Vector<int>::Zero(mCols);
-                    newSolutionMatrix.col(j) = Vector<int>::Zero(mRows);
-                    newSolutionMatrix(i, j) = 1;
-
-                    SparseMatrix<DataType> newLinearConstraintMatrix(linearConstraintMatrix);
-                    newLinearConstraintMatrix.conservativeResize(linearConstraintMatrix.rows() + mRows + mCols - 1, linearConstraintMatrix.cols());
-
-                    for (auto k = 0; k < mRows; ++k)
-                        if (k != i)
-                            newLinearConstraintMatrix.insert(k + linearConstraintMatrix.rows(), k * mCols + j) = 1;
-
-                    for (auto l = 0; l < mCols; ++l)
-                        if (l != j)
-                            newLinearConstraintMatrix.insert(l + linearConstraintMatrix.rows() + mRows - 1, i * mCols + l) = 1;
-
-                    newLinearConstraintMatrix.insert(linearConstraintMatrix.rows() + mRows + mCols - 2, i * mCols + j) = 1;
-
-                    Vector<DataType> newLowerBound(loweBound.size() + mRows + mCols - 1);
-                    newLowerBound << loweBound, Vector<DataType>::Zero(mRows - 1), Vector<DataType>::Zero(mCols - 1), Vector<DataType>::Ones(1);
-
-                    Vector<DataType> newUpperBound(upperBound.size() + mRows + mCols - 1);
-                    newUpperBound << upperBound, Vector<DataType>::Zero(mRows - 1), Vector<DataType>::Zero(mCols - 1), Vector<DataType>::Ones(1);
-
-                    bound(newLinearConstraintMatrix, newLowerBound, newUpperBound, newSolutionMatrix);
-                }
-            }
-            break;
         }
     }
 }
@@ -253,37 +249,70 @@ DataType MixedBooleanQPSolver<DataType>::objective(const Vector<DataType> &solut
     return quadraticTerm + linearTerm;
 }
 
+template <typename DataType>
+bool MixedBooleanQPSolver<DataType>::synchronize(const Vector<DataType> &solution, const DataType &value, bool endFlag)
+{
+    std::vector<DataType> solutionVector(solution.size());
+    Eigen::Map<Vector<DataType>>(solutionVector.data(), solution.size()) = solution;
+
+    std::vector<std::vector<DataType>> solutionVectors;
+    boost::mpi::all_gather(mCommunicator, solutionVector, solutionVectors);
+
+    std::vector<DataType> values;
+    boost::mpi::all_gather(mCommunicator, value, values);
+
+    std::vector<int> endFlags;
+    boost::mpi::all_gather(mCommunicator, endFlag ? 1 : 0, endFlags);
+
+    auto argmin = std::distance(values.begin(), std::min_element(values.begin(), values.end()));
+    if (values[argmin] < mValue)
+    {
+        mSolution = Eigen::Map<const Vector<DataType>>(solutionVectors[argmin].data(), solution.size());
+        mValue = values[argmin];
+    }
+
+    return std::all_of(endFlags.begin(), endFlags.end(), [](auto x) { return x; });
+}
+
 } // namespace cvxqp
 
-template cvxqp::MixedBooleanQPSolver<float>::MixedBooleanQPSolver(const Matrix<float> &);
-template cvxqp::MixedBooleanQPSolver<double>::MixedBooleanQPSolver(const Matrix<double> &);
+template cvxqp::MixedBooleanQPSolver<float>::MixedBooleanQPSolver(boost::mpi::environment &);
+template cvxqp::MixedBooleanQPSolver<double>::MixedBooleanQPSolver(boost::mpi::environment &);
 
-template bool cvxqp::MixedBooleanQPSolver<float>::synchronize(const cvxqp::Vector<float> &solution, const float &value, bool finished);
-template bool cvxqp::MixedBooleanQPSolver<double>::synchronize(const cvxqp::Vector<double> &solution, const double &value, bool finished);
+template void cvxqp::MixedBooleanQPSolver<float>::initialize(const cvxqp::Matrix<float> &);
+template void cvxqp::MixedBooleanQPSolver<double>::initialize(const cvxqp::Matrix<double> &);
 
 template cvxqp::Matrix<float> cvxqp::MixedBooleanQPSolver<float>::greedy_search(cvxqp::Matrix<float>);
 template cvxqp::Matrix<double> cvxqp::MixedBooleanQPSolver<double>::greedy_search(cvxqp::Matrix<double>);
 
-template std::tuple<cvxqp::Matrix<float>, cvxqp::Matrix<float>> cvxqp::MixedBooleanQPSolver<float>::solve();
-template std::tuple<cvxqp::Matrix<double>, cvxqp::Matrix<double>> cvxqp::MixedBooleanQPSolver<double>::solve();
-
-template void cvxqp::MixedBooleanQPSolver<float>::bound(const cvxqp::SparseMatrix<float> &,
-                                                        const cvxqp::Vector<float> &,
-                                                        const cvxqp::Vector<float> &,
-                                                        const cvxqp::Matrix<int> &);
-template void cvxqp::MixedBooleanQPSolver<double>::bound(const cvxqp::SparseMatrix<double> &,
-                                                         const cvxqp::Vector<double> &,
-                                                         const cvxqp::Vector<double> &,
-                                                         const cvxqp::Matrix<int> &);
+template std::tuple<cvxqp::Matrix<float>, cvxqp::Matrix<float>> cvxqp::MixedBooleanQPSolver<float>::solve(const cvxqp::Matrix<float> &);
+template std::tuple<cvxqp::Matrix<double>, cvxqp::Matrix<double>> cvxqp::MixedBooleanQPSolver<double>::solve(const cvxqp::Matrix<double> &);
 
 template void cvxqp::MixedBooleanQPSolver<float>::branch(const cvxqp::SparseMatrix<float> &,
                                                          const cvxqp::Vector<float> &,
                                                          const cvxqp::Vector<float> &,
-                                                         const cvxqp::Matrix<int> &);
+                                                         const cvxqp::Matrix<int> &,
+                                                         Matrix<int>::Index,
+                                                         std::vector<int> &);
 template void cvxqp::MixedBooleanQPSolver<double>::branch(const cvxqp::SparseMatrix<double> &,
                                                           const cvxqp::Vector<double> &,
                                                           const cvxqp::Vector<double> &,
-                                                          const cvxqp::Matrix<int> &);
+                                                          const cvxqp::Matrix<int> &,
+                                                          Matrix<int>::Index,
+                                                          std::vector<int> &);
+
+template void cvxqp::MixedBooleanQPSolver<float>::bound(const cvxqp::SparseMatrix<float> &,
+                                                        const cvxqp::Vector<float> &,
+                                                        const cvxqp::Vector<float> &,
+                                                        const cvxqp::Matrix<int> &,
+                                                        Matrix<int>::Index,
+                                                        std::vector<int> &);
+template void cvxqp::MixedBooleanQPSolver<double>::bound(const cvxqp::SparseMatrix<double> &,
+                                                         const cvxqp::Vector<double> &,
+                                                         const cvxqp::Vector<double> &,
+                                                         const cvxqp::Matrix<int> &,
+                                                         Matrix<int>::Index,
+                                                         std::vector<int> &);
 
 template cvxqp::Vector<float> cvxqp::MixedBooleanQPSolver<float>::optimize(const cvxqp::SparseMatrix<float> &,
                                                                            const cvxqp::Vector<float> &,
@@ -294,3 +323,6 @@ template cvxqp::Vector<double> cvxqp::MixedBooleanQPSolver<double>::optimize(con
 
 template float cvxqp::MixedBooleanQPSolver<float>::objective(const cvxqp::Vector<float> &);
 template double cvxqp::MixedBooleanQPSolver<double>::objective(const cvxqp::Vector<double> &);
+
+template bool cvxqp::MixedBooleanQPSolver<float>::synchronize(const cvxqp::Vector<float> &, const float &, bool);
+template bool cvxqp::MixedBooleanQPSolver<double>::synchronize(const cvxqp::Vector<double> &, const double &, bool);

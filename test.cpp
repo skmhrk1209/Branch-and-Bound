@@ -1,13 +1,29 @@
-#include <Eigen/Dense>
 #include "cvxqp.hpp"
+#include "range.hpp"
 #include "iostream.hpp"
-#include "functional.hpp"
-
 
 int main(...)
 {
-    cvxqp::MixedBooleanQPSolver<double> solver(Eigen::MatrixXd::Identity(4, 4));
-    auto solution = solver.solve();
-    std::cout << solution << std::endl;
+    boost::mpi::environment environment;
+
+    for (auto i : range<10>())
+    {
+        cvxqp::Matrix<float> doublyStochasticMatrix = cvxqp::Matrix<float>::Random(9, 9) / 0.1;
+        cvxqp::Matrix<float> permutationMatrix;
+        // Softmax operation
+        doublyStochasticMatrix = doublyStochasticMatrix.array().exp() / doublyStochasticMatrix.array().exp().sum();
+        // Sinkhorn Normalization
+        doublyStochasticMatrix = doublyStochasticMatrix.array() / (cvxqp::Matrix<float>::Ones(9, 9) * doublyStochasticMatrix).array();
+        doublyStochasticMatrix = doublyStochasticMatrix.array() / (doublyStochasticMatrix * cvxqp::Matrix<float>::Ones(9, 9)).array();
+        // Solve!
+        cvxqp::MixedBooleanQPSolver<float> solver(environment);
+        std::tie(permutationMatrix, doublyStochasticMatrix) = solver.solve(doublyStochasticMatrix);
+
+        std::cout << "doublyStochasticMatrix:\n"
+                  << doublyStochasticMatrix << std::endl;
+        std::cout << "permutationMatrix:\n"
+                  << permutationMatrix << std::endl;
+    }
+
     return 0;
 }

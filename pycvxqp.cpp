@@ -9,9 +9,11 @@ namespace py = pybind11;
 
 PYBIND11_MODULE(pycvxqp, module)
 {
-    module.def("branch_and_bound", [](const cvxqp::Matrix<double>& doublyStochasticMatrix)
-    {
-        cvxqp::MixedBooleanQPSolver<double> solver(doublyStochasticMatrix);
-        return solver.solve();
-    }, py::call_guard<py::scoped_ostream_redirect, py::scoped_estream_redirect>());
+    module.def("branch_and_bound",
+               [](const cvxqp::Matrix<double> &doublyStochasticMatrix) {
+                   boost::mpi::environment environment;
+                   cvxqp::MixedBooleanQPSolver<double> solver(environment);
+                   return solver.solve(doublyStochasticMatrix);
+               },
+               py::call_guard<py::scoped_ostream_redirect, py::scoped_estream_redirect>());
 }

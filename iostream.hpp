@@ -6,83 +6,83 @@
 #include "tuple.hpp"
 
 template <typename... Types>
-decltype(auto) operator>>(std::istream& is, std::tuple<Types...>& tuple)
+decltype(auto) operator>>(std::istream &is, std::tuple<Types...> &tuple)
 {
-	forEach(tuple, [&is](auto& element) { is >> element; });
+    forEach(tuple, [&is](auto &element) { is >> element; });
 
-	return is;
+    return is;
 }
 
 template <typename... Types>
-decltype(auto) operator<<(std::ostream& os, const std::tuple<Types...>& tuple)
+decltype(auto) operator<<(std::ostream &os, const std::tuple<Types...> &tuple)
 {
-	os << "( ";
+    os << "( ";
 
-	forEach(tuple, [&os](const auto& element) { os << element << " "; });
+    forEach(tuple, [&os](const auto &element) { os << element << " "; });
 
-	os << ")";
+    os << ")";
 
-	return os;
+    return os;
 }
 
-template <typename Type, size_t Size>
-decltype(auto) operator>>(std::istream& is, std::array<Type, Size>& array)
+template <typename Type, auto Size>
+decltype(auto) operator>>(std::istream &is, std::array<Type, Size> &array)
 {
-	forEach(array, [&is](auto& element) { is >> element; });
+    forEach(array, [&is](auto &element) { is >> element; });
 
-	return is;
+    return is;
 }
 
-template <typename Type, size_t Size>
-decltype(auto) operator<<(std::ostream& os, const std::array<Type, Size>& array)
+template <typename Type, auto Size>
+decltype(auto) operator<<(std::ostream &os, const std::array<Type, Size> &array)
 {
-	os << "[ ";
+    os << "[ ";
 
-	forEach(array, [&os](const auto& element) { os << element << " "; });
+    forEach(array, [&os](const auto &element) { os << element << " "; });
 
-	os << "]";
+    os << "]";
 
-	return os;
-}
-
-template <typename First, typename Second>
-decltype(auto) operator>>(std::istream& is, std::pair<First, Second>& pair)
-{
-	is >> pair.first >> pair.second;
-
-	return is;
+    return os;
 }
 
 template <typename First, typename Second>
-decltype(auto) operator<<(std::ostream& os, const std::pair<First, Second>& pair)
+decltype(auto) operator>>(std::istream &is, std::pair<First, Second> &pair)
 {
-	os << "( " << pair.first << " " << pair.second << " )";
+    is >> pair.first >> pair.second;
 
-	return os;
+    return is;
+}
+
+template <typename First, typename Second>
+decltype(auto) operator<<(std::ostream &os, const std::pair<First, Second> &pair)
+{
+    os << "( " << pair.first << " " << pair.second << " )";
+
+    return os;
 }
 
 template <typename Container>
-auto operator>>(std::istream& is, Container& container) -> decltype(container.begin(), container.end(), is)
+auto operator>>(std::istream &is, Container &container) -> decltype(container.begin(), container.end(), is)
 {
-	for (auto& element : container)
-	{
-		is >> element;
-	}
+    for (auto &element : container)
+    {
+        is >> element;
+    }
 
-	return is;
+    return is;
 }
 
 template <typename Container>
-auto operator<<(std::ostream& os, const Container& container) -> decltype(container.begin(), container.end(), os)
+auto operator<<(std::ostream &os, const Container &container) -> decltype(container.begin(), container.end(), os)
 {
-	os << "[ ";
+    os << "[ ";
 
-	for (const auto& element : container)
-	{
-		os << element << " ";
-	}
+    for (const auto &element : container)
+    {
+        os << element << " ";
+    }
 
-	os << "]";
+    os << "]";
 
-	return os;
+    return os;
 }

@@ -1,0 +1,459 @@
+The system is: Linux - 3.10.0-327.36.3.el7.x86_64 - x86_64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: /mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicc 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/3.15.3/CompilerIdC/a.out"
+
+Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+Compiler: /mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx 
+Build flags: 
+Id flags:  
+
+The output was:
+0
+
+
+Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
+
+The CXX compiler identification is GNU, found in "/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/3.15.3/CompilerIdCXX/a.out"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_15328/fast && /usr/bin/gmake -f CMakeFiles/cmTC_15328.dir/build.make CMakeFiles/cmTC_15328.dir/build
+gmake[1]: ディレクトリ `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp' に入ります
+Building C object CMakeFiles/cmTC_15328.dir/testCCompiler.c.o
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicc    -o CMakeFiles/cmTC_15328.dir/testCCompiler.c.o   -c /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_15328
+/mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_15328.dir/link.txt --verbose=1
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicc      -rdynamic CMakeFiles/cmTC_15328.dir/testCCompiler.c.o  -o cmTC_15328 
+gmake[1]: ディレクトリ `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp' から出ます
+
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_09cce/fast && /usr/bin/gmake -f CMakeFiles/cmTC_09cce.dir/build.make CMakeFiles/cmTC_09cce.dir/build
+gmake[1]: Entering directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicc   -v -o CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o   -c /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCCompilerABI.c
+Using built-in specs.
+COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/gcc
+Target: x86_64-pc-linux-gnu
+Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib
+Thread model: posix
+gcc version 7.4.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-mtune=generic' '-march=x86-64'
+ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/cc1 -quiet -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include -D_REENTRANT /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o -version -o /tmp/cc5ir96L.s
+GNU C11 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include
+ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include
+ /usr/local/include
+ /mnt/lustre/sensetime/hiroki_sakuma/local/include
+ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed
+ /usr/include
+End of search list.
+GNU C11 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 2727e349424e617f7c5fb76079722914
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-mtune=generic' '-march=x86-64'
+ as -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include --64 -o CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o /tmp/cc5ir96L.s
+GNU assembler version 2.23.52.0.1 (x86_64-redhat-linux) using BFD version version 2.23.52.0.1-55.el7 20130226
+COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_09cce
+/mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09cce.dir/link.txt --verbose=1
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicc     -v -rdynamic CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o  -o cmTC_09cce 
+Using built-in specs.
+COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/gcc
+COLLECT_LTO_WRAPPER=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib
+Thread model: posix
+gcc version 7.4.0 (GCC) 
+COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_09cce' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib' '-mtune=generic' '-march=x86-64'
+ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/collect2 -plugin /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/liblto_plugin.so -plugin-opt=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cczQXijU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_09cce /lib/../lib64/crt1.o /lib/../lib64/crti.o /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtbegin.o -L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../.. CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o -rpath /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib --enable-new-dtags -lmpi -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_09cce' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed C implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include]
+    add: [/usr/local/include]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/include]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include] ==> [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/include]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/include] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/include]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/include;/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include;/usr/local/include;/mnt/lustre/sensetime/hiroki_sakuma/local/include;/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed;/usr/include]
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_09cce/fast && /usr/bin/gmake -f CMakeFiles/cmTC_09cce.dir/build.make CMakeFiles/cmTC_09cce.dir/build]
+  ignore line: [gmake[1]: Entering directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicc   -v -o CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o   -c /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCCompilerABI.c]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/gcc]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.4.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/cc1 -quiet -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include -D_REENTRANT /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o -version -o /tmp/cc5ir96L.s]
+  ignore line: [GNU C11 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/include]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C11 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: 2727e349424e617f7c5fb76079722914]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include --64 -o CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o /tmp/cc5ir96L.s]
+  ignore line: [GNU assembler version 2.23.52.0.1 (x86_64-redhat-linux) using BFD version version 2.23.52.0.1-55.el7 20130226]
+  ignore line: [COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_09cce]
+  ignore line: [/mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_09cce.dir/link.txt --verbose=1]
+  ignore line: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicc     -v -rdynamic CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o  -o cmTC_09cce ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/gcc]
+  ignore line: [COLLECT_LTO_WRAPPER=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_09cce' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib' '-mtune=generic' '-march=x86-64']
+  link line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/collect2 -plugin /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/liblto_plugin.so -plugin-opt=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/cczQXijU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_09cce /lib/../lib64/crt1.o /lib/../lib64/crti.o /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtbegin.o -L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../.. CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o -rpath /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib --enable-new-dtags -lmpi -lgcc --as-needed -lgcc_s --no-as-needed -lpthread -lc -lgcc --as-needed -lgcc_s --no-as-needed /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cczQXijU.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_09cce] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> ignore
+    arg [/lib/../lib64/crti.o] ==> ignore
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtbegin.o] ==> ignore
+    arg [-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib] ==> dir [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib]
+    arg [-L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0] ==> dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0]
+    arg [-L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64] ==> dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../..] ==> dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../..]
+    arg [CMakeFiles/cmTC_09cce.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [-lmpi] ==> lib [mpi]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [-lpthread] ==> lib [pthread]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc] ==> lib [gcc]
+    arg [--as-needed] ==> ignore
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [--no-as-needed] ==> ignore
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtend.o] ==> ignore
+    arg [/lib/../lib64/crtn.o] ==> ignore
+  collapse library dir [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib] ==> [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/lib]
+  collapse library dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0]
+  collapse library dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../..] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib]
+  implicit libs: [mpi;gcc;gcc_s;pthread;c;gcc;gcc_s]
+  implicit dirs: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/lib;/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0;/mnt/lustre/sensetime/hiroki_sakuma/local/lib64;/lib64;/usr/lib64;/mnt/lustre/sensetime/hiroki_sakuma/local/lib]
+  implicit fwks: []
+
+
+Determining if the CXX compiler works passed with the following output:
+Change Dir: /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_9bbbc/fast && /usr/bin/gmake -f CMakeFiles/cmTC_9bbbc.dir/build.make CMakeFiles/cmTC_9bbbc.dir/build
+gmake[1]: ディレクトリ `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp' に入ります
+Building CXX object CMakeFiles/cmTC_9bbbc.dir/testCXXCompiler.cxx.o
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx     -o CMakeFiles/cmTC_9bbbc.dir/testCXXCompiler.cxx.o -c /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_9bbbc
+/mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9bbbc.dir/link.txt --verbose=1
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx       -rdynamic CMakeFiles/cmTC_9bbbc.dir/testCXXCompiler.cxx.o  -o cmTC_9bbbc 
+gmake[1]: ディレクトリ `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp' から出ます
+
+
+
+Detecting CXX compiler ABI info compiled with the following output:
+Change Dir: /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_46a41/fast && /usr/bin/gmake -f CMakeFiles/cmTC_46a41.dir/build.make CMakeFiles/cmTC_46a41.dir/build
+gmake[1]: Entering directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx    -v -o CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o -c /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp
+Using built-in specs.
+COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/g++
+Target: x86_64-pc-linux-gnu
+Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib
+Thread model: posix
+gcc version 7.4.0 (GCC) 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/cc1plus -quiet -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include -D_GNU_SOURCE -D_REENTRANT /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccpcU7ek.s
+GNU C++14 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../x86_64-pc-linux-gnu/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include
+ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0
+ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/x86_64-pc-linux-gnu
+ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/backward
+ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include
+ /usr/local/include
+ /mnt/lustre/sensetime/hiroki_sakuma/local/include
+ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed
+ /usr/include
+End of search list.
+GNU C++14 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)
+	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP
+
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: c085754b4a4a8578c4d1e763eae7fb34
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ as -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include --64 -o CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccpcU7ek.s
+GNU assembler version 2.23.52.0.1 (x86_64-redhat-linux) using BFD version version 2.23.52.0.1-55.el7 20130226
+COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+Linking CXX executable cmTC_46a41
+/mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46a41.dir/link.txt --verbose=1
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx      -v -rdynamic CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_46a41 
+Using built-in specs.
+COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/g++
+COLLECT_LTO_WRAPPER=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper
+Target: x86_64-pc-linux-gnu
+Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib
+Thread model: posix
+gcc version 7.4.0 (GCC) 
+COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/
+LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_46a41' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/collect2 -plugin /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/liblto_plugin.so -plugin-opt=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPviZGn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_46a41 /lib/../lib64/crt1.o /lib/../lib64/crti.o /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtbegin.o -L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../.. CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o -rpath /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib --enable-new-dtags -lmpi_cxx -lmpi -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtend.o /lib/../lib64/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_46a41' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+gmake[1]: Leaving directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp'
+
+
+
+Parsed CXX implicit include dir info from above output: rv=done
+  found start of include info
+  found start of implicit include info
+    add: [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/x86_64-pc-linux-gnu]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/backward]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include]
+    add: [/usr/local/include]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/include]
+    add: [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed]
+    add: [/usr/include]
+  end of search list found
+  collapse include dir [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include] ==> [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/include]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/include/c++/7.4.0]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/x86_64-pc-linux-gnu] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/include/c++/7.4.0/x86_64-pc-linux-gnu]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/backward] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/include/c++/7.4.0/backward]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include]
+  collapse include dir [/usr/local/include] ==> [/usr/local/include]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/include] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/include]
+  collapse include dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed]
+  collapse include dir [/usr/include] ==> [/usr/include]
+  implicit include dirs: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/include;/mnt/lustre/sensetime/hiroki_sakuma/local/include/c++/7.4.0;/mnt/lustre/sensetime/hiroki_sakuma/local/include/c++/7.4.0/x86_64-pc-linux-gnu;/mnt/lustre/sensetime/hiroki_sakuma/local/include/c++/7.4.0/backward;/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include;/usr/local/include;/mnt/lustre/sensetime/hiroki_sakuma/local/include;/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed;/usr/include]
+
+
+Parsed CXX implicit link information from above output:
+  link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command(s):/usr/bin/gmake cmTC_46a41/fast && /usr/bin/gmake -f CMakeFiles/cmTC_46a41.dir/build.make CMakeFiles/cmTC_46a41.dir/build]
+  ignore line: [gmake[1]: Entering directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx    -v -o CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o -c /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/g++]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.4.0 (GCC) ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/cc1plus -quiet -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include -D_GNU_SOURCE -D_REENTRANT /mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/share/cmake-3.15/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o -version -o /tmp/ccpcU7ek.s]
+  ignore line: [GNU C++14 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [ignoring nonexistent directory "/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../x86_64-pc-linux-gnu/include"]
+  ignore line: [#include "..." search starts here:]
+  ignore line: [#include <...> search starts here:]
+  ignore line: [ /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/x86_64-pc-linux-gnu]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../include/c++/7.4.0/backward]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include]
+  ignore line: [ /usr/local/include]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/include]
+  ignore line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/include-fixed]
+  ignore line: [ /usr/include]
+  ignore line: [End of search list.]
+  ignore line: [GNU C++14 (GCC) version 7.4.0 (x86_64-pc-linux-gnu)]
+  ignore line: [	compiled by GNU C version 4.8.5 20150623 (Red Hat 4.8.5-16), GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.3, isl version isl-0.16.1-GMP]
+  ignore line: []
+  ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+  ignore line: [Compiler executable checksum: c085754b4a4a8578c4d1e763eae7fb34]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v -I /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include --64 -o CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccpcU7ek.s]
+  ignore line: [GNU assembler version 2.23.52.0.1 (x86_64-redhat-linux) using BFD version version 2.23.52.0.1-55.el7 20130226]
+  ignore line: [COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking CXX executable cmTC_46a41]
+  ignore line: [/mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_46a41.dir/link.txt --verbose=1]
+  ignore line: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx      -v -rdynamic CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_46a41 ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=/mnt/lustre/sensetime/hiroki_sakuma/local/bin/g++]
+  ignore line: [COLLECT_LTO_WRAPPER=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper]
+  ignore line: [Target: x86_64-pc-linux-gnu]
+  ignore line: [Configured with: ../configure --prefix=/mnt/lustre/sensetime/hiroki_sakuma/local --enable-languages=c,c++ --disable-bootstrap --disable-multilib]
+  ignore line: [Thread model: posix]
+  ignore line: [gcc version 7.4.0 (GCC) ]
+  ignore line: [COMPILER_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/]
+  ignore line: [LIBRARY_PATH=/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64/:/lib/../lib64/:/usr/lib/../lib64/:/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../:/lib/:/usr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_46a41' '-I' '/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/include' '-pthread' '-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/collect2 -plugin /mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/liblto_plugin.so -plugin-opt=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper -plugin-opt=-fresolution=/tmp/ccPviZGn.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lpthread -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --eh-frame-hdr -m elf_x86_64 -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -o cmTC_46a41 /lib/../lib64/crt1.o /lib/../lib64/crti.o /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtbegin.o -L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64 -L/lib/../lib64 -L/usr/lib/../lib64 -L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../.. CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o -rpath /mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib --enable-new-dtags -lmpi_cxx -lmpi -lstdc++ -lm -lgcc_s -lgcc -lpthread -lc -lgcc_s -lgcc /mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtend.o /lib/../lib64/crtn.o]
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/collect2] ==> ignore
+    arg [-plugin] ==> ignore
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/liblto_plugin.so] ==> ignore
+    arg [-plugin-opt=/mnt/lustre/sensetime/hiroki_sakuma/local/libexec/gcc/x86_64-pc-linux-gnu/7.4.0/lto-wrapper] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccPviZGn.res] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lpthread] ==> ignore
+    arg [-plugin-opt=-pass-through=-lc] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+    arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+    arg [--eh-frame-hdr] ==> ignore
+    arg [-m] ==> ignore
+    arg [elf_x86_64] ==> ignore
+    arg [-export-dynamic] ==> ignore
+    arg [-dynamic-linker] ==> ignore
+    arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTC_46a41] ==> ignore
+    arg [/lib/../lib64/crt1.o] ==> ignore
+    arg [/lib/../lib64/crti.o] ==> ignore
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtbegin.o] ==> ignore
+    arg [-L/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib] ==> dir [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib]
+    arg [-L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0] ==> dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0]
+    arg [-L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64] ==> dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64]
+    arg [-L/lib/../lib64] ==> dir [/lib/../lib64]
+    arg [-L/usr/lib/../lib64] ==> dir [/usr/lib/../lib64]
+    arg [-L/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../..] ==> dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../..]
+    arg [CMakeFiles/cmTC_46a41.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [-rpath] ==> ignore
+    arg [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib] ==> ignore
+    arg [--enable-new-dtags] ==> ignore
+    arg [-lmpi_cxx] ==> lib [mpi_cxx]
+    arg [-lmpi] ==> lib [mpi]
+    arg [-lstdc++] ==> lib [stdc++]
+    arg [-lm] ==> lib [m]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lpthread] ==> lib [pthread]
+    arg [-lc] ==> lib [c]
+    arg [-lgcc_s] ==> lib [gcc_s]
+    arg [-lgcc] ==> lib [gcc]
+    arg [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/crtend.o] ==> ignore
+    arg [/lib/../lib64/crtn.o] ==> ignore
+  collapse library dir [/mnt/lustre/share/parrots/2//dep/openmpi-2.1.5-cuda9.0/lib] ==> [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/lib]
+  collapse library dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0]
+  collapse library dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../../../lib64] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib64]
+  collapse library dir [/lib/../lib64] ==> [/lib64]
+  collapse library dir [/usr/lib/../lib64] ==> [/usr/lib64]
+  collapse library dir [/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0/../../..] ==> [/mnt/lustre/sensetime/hiroki_sakuma/local/lib]
+  implicit libs: [mpi_cxx;mpi;stdc++;m;gcc_s;gcc;pthread;c;gcc_s;gcc]
+  implicit dirs: [/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/lib;/mnt/lustre/sensetime/hiroki_sakuma/local/lib/gcc/x86_64-pc-linux-gnu/7.4.0;/mnt/lustre/sensetime/hiroki_sakuma/local/lib64;/lib64;/usr/lib64;/mnt/lustre/sensetime/hiroki_sakuma/local/lib]
+  implicit fwks: []
+
+
+Performing C++ SOURCE FILE Test HAS_FLTO succeeded with the following output:
+Change Dir: /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake cmTC_7d8a0/fast && /usr/bin/gmake -f CMakeFiles/cmTC_7d8a0.dir/build.make CMakeFiles/cmTC_7d8a0.dir/build
+gmake[1]: Entering directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_7d8a0.dir/src.cxx.o
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx    -DHAS_FLTO   -flto -fno-fat-lto-objects -o CMakeFiles/cmTC_7d8a0.dir/src.cxx.o -c /mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_7d8a0
+/mnt/lustre/sensetime/hiroki_sakuma/packages/cmake/cmake-3.15.3-Linux-x86_64/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d8a0.dir/link.txt --verbose=1
+/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx   -DHAS_FLTO    -rdynamic CMakeFiles/cmTC_7d8a0.dir/src.cxx.o  -o cmTC_7d8a0 -flto 
+gmake[1]: Leaving directory `/mnt/lustre/sensetime/hiroki_sakuma/Branch-and-Bound/build/CMakeFiles/CMakeTmp'
+
+
+Source file was:
+int main() { return 0; }
