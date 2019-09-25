@@ -1,1 +1,0 @@
-/mnt/lustre/share/parrots/2/dep/openmpi-2.1.5-cuda9.0/bin/mpicxx -fPIC   -shared -Wl,-soname,libcvxqp.so -o libcvxqp.so CMakeFiles/cvxqp.dir/cvxqp.cpp.o 

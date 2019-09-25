@@ -1,5 +1,0 @@
-#!/bin/sh
-
-cmake -DPYTHON_EXECUTABLE=$(which python3) ..
-make
-cp libcvxqp.so ${INSTALL_PREFIX}/lib64
